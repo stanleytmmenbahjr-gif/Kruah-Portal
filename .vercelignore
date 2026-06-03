@@ -1,3 +1,4 @@
+.env*
 backend/
 scripts/
 .DS_Store
