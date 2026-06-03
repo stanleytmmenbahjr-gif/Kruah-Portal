@@ -15,7 +15,7 @@ type ContactMessage = {
 };
 
 export default async function AdminMessagesPage() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const authorized = cookieStore.get('admin_auth')?.value === 'true';
 
   if (!authorized) {

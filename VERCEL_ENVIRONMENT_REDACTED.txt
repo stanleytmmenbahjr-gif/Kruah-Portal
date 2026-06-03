@@ -1,0 +1,20 @@
+# Redacted Vercel environment variables
+# Replace each placeholder with your actual secret value in the Vercel dashboard.
+
+GROQ_API_KEY=REDACTED
+GROQ_BASE_URL=https://api.groq.com/openai/v1
+GROQ_MODEL_NAME=openai/gpt-oss-20b
+
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=REDACTED
+NEXT_PUBLIC_SUPABASE_ANON_KEY=REDACTED
+
+SUPABASE_DB_URL=REDACTED
+SUPABASE_SERVICE_ROLE_KEY=REDACTED
+
+RESEND_API_KEY=REDACTED
+RESEND_AUDIENCE_ID=REDACTED
+CONTACT_NOTIFICATION_EMAIL=your-notification-email@example.com
+
+ADMIN_PASSWORD=REDACTED
+NEXT_PUBLIC_SITE_URL=https://your-production-site.vercel.app

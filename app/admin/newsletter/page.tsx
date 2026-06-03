@@ -13,7 +13,7 @@ type Subscriber = {
 };
 
 export default async function AdminNewsletterPage() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const authorized = cookieStore.get('admin_auth')?.value === 'true';
   const resendEnabled = Boolean(process.env.RESEND_API_KEY);
   const resendAudienceId = process.env.RESEND_AUDIENCE_ID;

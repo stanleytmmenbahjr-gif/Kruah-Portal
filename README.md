@@ -8,22 +8,56 @@ A premium personal brand site scaffolded in Next.js 15, Tailwind CSS, Supabase, 
    ```bash
    npm install
    ```
-2. Create `.env.local` with the required environment variables:
+2. Create `.env.local` with the required environment variables. Use `.env.example` as a template.
    ```bash
-   GROQ_API_KEY=your_groq_api_key_here
-   GROQ_MODEL_NAME=openai/gpt-oss-20b
-   GROQ_BASE_URL=https://api.groq.com/openai/v1
-   NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-   SUPABASE_DB_URL=postgres://your-db-user:password@db-host:5432/postgres
-   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-   RESEND_API_KEY=re_your_actual_api_key_here
-   RESEND_AUDIENCE_ID=your_actual_audience_id_here
+   cp .env.example .env.local
    ```
 
-   If you set `SUPABASE_DB_URL`, the admin API can automatically create missing tables like `press_releases` when the first request runs.3. Start the frontend:
+   Update the values with your own secrets:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` or `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `SUPABASE_DB_URL`
+   - `RESEND_API_KEY`
+   - `RESEND_AUDIENCE_ID`
+   - `CONTACT_NOTIFICATION_EMAIL`
+   - `GROQ_API_KEY`
+   - `GROQ_MODEL_NAME`
+   - `GROQ_BASE_URL`
+   - `ADMIN_PASSWORD`
+
+   If you set `SUPABASE_DB_URL`, the admin API can automatically create missing tables like `press_releases` when the first request runs.
+3. Start the frontend:
    ```bash
    npm run dev
    ```
+
+## Vercel Deployment
+
+This repository is ready to deploy on Vercel as a Next.js app. The root `package.json` and `vercel.json` ensure Vercel uses the Next.js builder.
+
+### Deployment steps
+
+1. Push this repo to your Git provider.
+2. Create a new project in Vercel and connect the repo.
+3. In Vercel project settings, add the required environment variables from `.env.example`:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` or `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `SUPABASE_DB_URL`
+   - `RESEND_API_KEY`
+   - `RESEND_AUDIENCE_ID`
+   - `CONTACT_NOTIFICATION_EMAIL`
+   - `GROQ_API_KEY`
+   - `GROQ_MODEL_NAME`
+   - `GROQ_BASE_URL`
+   - `ADMIN_PASSWORD`
+4. Deploy on Vercel. The build command is `npm run build` and the output is handled automatically by Next.js.
+
+### Notes for Vercel
+
+- The optional `backend/` folder is not part of the Vercel deployment and is ignored via `.vercelignore`.
+- Do not commit `.env.local` or secret values. Vercel environment variables are configured in the Vercel dashboard.
 
 ## Project Structure
 
