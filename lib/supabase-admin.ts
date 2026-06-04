@@ -1,13 +1,15 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { Client as PgClient } from 'pg';
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+const SUPABASE_URL =
+  (process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || '').trim();
 const SUPABASE_KEY =
-  process.env.SUPABASE_SERVICE_ROLE_KEY ||
-  process.env.SUPABASE_ANON_KEY ||
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-  process.env.SUPABASE_SERVICE_ROLE_KEY;
-const SUPABASE_DB_URL = process.env.SUPABASE_DB_URL;
+  (process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    process.env.SUPABASE_ANON_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    '').trim();
+const SUPABASE_DB_URL = (process.env.SUPABASE_DB_URL || '').trim();
 
 const isDbUrlConfigured = () =>
   Boolean(SUPABASE_DB_URL && !SUPABASE_DB_URL.includes('[YOUR-PASSWORD]') && !SUPABASE_DB_URL.includes('YOUR_PASSWORD'));
