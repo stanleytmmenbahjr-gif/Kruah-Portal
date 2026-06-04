@@ -73,7 +73,7 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.9fr] lg:items-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-white/5 px-4 py-2 text-sm text-gold backdrop-blur-sm">
-                Presidential presence with modern African clarity
+                Minister Cornelia Wonkerleh Kruah
               </div>
               <div className="space-y-6">
                 <h1 className="max-w-4xl text-5xl font-semibold leading-tight text-white sm:text-6xl">

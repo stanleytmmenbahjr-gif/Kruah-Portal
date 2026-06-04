@@ -68,7 +68,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between py-4 md:py-5">
           {/* Logo */}
           <Link href="/" className="text-lg md:text-xl font-bold tracking-[0.3em] text-white hover:text-gold transition flex-shrink-0">
-            KWK
+            CWK
           </Link>
 
           {/* Desktop Navigation */}
