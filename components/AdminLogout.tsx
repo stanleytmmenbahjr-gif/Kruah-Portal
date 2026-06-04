@@ -10,8 +10,14 @@ export default function AdminLogout() {
 
   async function handleLogout() {
     setIsLoggingOut(true);
-    await fetch('/api/admin/auth', { method: 'DELETE' });
-    router.push('/admin');
+
+    try {
+      await fetch('/api/admin/auth', { method: 'DELETE' });
+    } catch (error) {
+      console.error('Logout failed:', error);
+    } finally {
+      router.push('/admin');
+    }
   }
 
   return (

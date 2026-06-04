@@ -21,20 +21,25 @@ export default function AdminLogin() {
 
     setStatus('submitting');
 
-    const response = await fetch('/api/admin/auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password }),
-    });
+    try {
+      const response = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
 
-    if (response.ok) {
-      router.replace('/admin/messages');
-      return;
+      if (response.ok) {
+        router.replace('/admin/messages');
+        return;
+      }
+
+      const body = await response.json();
+      setError(body?.error || 'Invalid password');
+      setStatus('error');
+    } catch (error) {
+      setError('Unable to sign in right now. Please try again later.');
+      setStatus('error');
     }
-
-    const body = await response.json();
-    setError(body?.error || 'Invalid password');
-    setStatus('error');
   }
 
   return (
