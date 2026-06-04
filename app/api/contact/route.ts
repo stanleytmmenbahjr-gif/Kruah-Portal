@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { saveContactMessage } from '../../../lib/message-store';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resendEnabled = Boolean(process.env.RESEND_API_KEY);
+const resend = resendEnabled ? new Resend(process.env.RESEND_API_KEY!) : null;
 
 export async function POST(request: Request) {
   try {
@@ -23,7 +24,7 @@ export async function POST(request: Request) {
 
     const notificationEmail = process.env.CONTACT_NOTIFICATION_EMAIL || 'hello@cornelia-wk.com';
     try {
-      if (process.env.RESEND_API_KEY && notificationEmail) {
+      if (resend && notificationEmail) {
         await resend.emails.send({
           from: 'Cornelia Wonkerleh Kruah <contact@cornelia-wk.com>',
           to: notificationEmail,
